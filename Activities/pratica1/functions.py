@@ -16,7 +16,7 @@ def file_path(extension):
 def write_file():
     name_file = file_path("txt")
 
-    data_list = list()
+    data_list = []
     flag = True
 
     while flag:
