@@ -2,6 +2,7 @@ import pandas as pd
 import csv
 import os
 
+
 def file_path(extension):
     name_file = input("Put the file's name:")
 
@@ -9,7 +10,7 @@ def file_path(extension):
 
     if extension != name_file_split[1]:
         return
-    
+
     return name_file
 
 
@@ -45,7 +46,7 @@ def read_file():
     try:
         with open(name_file, "r") as f:
             file_lines = f.readlines()
-            
+
             for i, file_line in enumerate(file_lines):
                 file_line = file_line.replace("\n", "")
                 print(f"{i + 1}| {file_line}")
@@ -54,11 +55,11 @@ def read_file():
         print("\nError: The file could not be read")
         return
 
-        
+
 def write_file_csv():
     name_file = file_path("csv")
-    
-    data_list = [["NAME","EMAIL","DATE OF BIRTH"]]
+
+    data_list = [["NAME", "EMAIL", "DATE OF BIRTH"]]
     flag = True
 
     while flag:
@@ -66,15 +67,15 @@ def write_file_csv():
 
         if validation == "yes":
             new_flag = True
-            
+
             name = input("\nWrite the name (write \"done\" when you finished):")
             email = input("Write the email:")
             date_of_birth = input("Write the date of birth:")
-            
+
             while new_flag:
-                data_list_itens = [name, email, date_of_birth]
-                data_list.append(data_list_itens)
-                
+                data_list_info = [name, email, date_of_birth]
+                data_list.append(data_list_info)
+
                 name = input("\nWrite the name (write \"done\" when you finished):")
                 if name == "done":
                     break
@@ -85,34 +86,33 @@ def write_file_csv():
             flag = False
         else:
             print("Please, put a valid answer\n")
-            
-            
+
         with open(name_file, "w") as f:
             data_writer = csv.writer(f)
             for row in data_list:
-                data_writer.writerow(row) 
+                data_writer.writerow(row)
         f.close()
-        
+
+
 def read_file_csv():
     name_file = file_path("csv")
-    
+
     try:
-        #with open(name_file, "r") as f:
-            #f_csv = csv.reader(f)
-            #for row in f_csv:
-                #print(row)
-        #f.close()
-            
-            
+        # with open(name_file, "r") as f:
+        # f_csv = csv.reader(f)
+        # for row in f_csv:
+        # print(row)
+        # f.close()
+
         f_csv = pd.read_csv(name_file)
         print(f_csv)
     except:
         print("\nError: The file could not be read")
         return
-    
-    
+
+
 def list_of_files():
     name_dir = input("Write the path of directory:")
-    
-    for name_dir,name_files,f_file in os.walk(name_dir):
-        print(f_file) 
+
+    for name_dir, name_files, f_file in os.walk(name_dir):
+        print(f_file)
