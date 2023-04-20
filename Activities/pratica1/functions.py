@@ -51,8 +51,8 @@ def read_file():
                 file_line = file_line.replace("\n", "")
                 print(f"{i + 1}| {file_line}")
         f.close()
-    except:
-        print("\nError: The file could not be read")
+    except Exception as error:
+        print(error)
         return
 
 
@@ -106,8 +106,8 @@ def read_file_csv():
 
         f_csv = pd.read_csv(name_file)
         print(f_csv)
-    except:
-        print("\nError: The file could not be read")
+    except Exception as error:
+        print(error)
         return
 
 
@@ -116,3 +116,6 @@ def list_of_files():
 
     for name_dir, name_files, f_file in os.walk(name_dir):
         print(f_file)
+
+
+read_file()
