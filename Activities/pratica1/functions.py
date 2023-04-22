@@ -24,10 +24,12 @@ def write_file():
         validation = input("\nDo you wanna add information to the file? (yes or no):")
 
         if validation == "yes":
-            str = input("\nWrite the information (write \"done\" when you finished):")
-            while str != "done":
-                data_list.append(str)
+            while True:
                 str = input("Write the information (write \"done\" when you finished):")
+                data_list.append(str)
+
+                if str == "done":
+                    break
         elif validation == "no":
             flag = False
         else:
@@ -60,30 +62,23 @@ def write_file_csv():
     name_file = file_path("csv")
 
     data_list = [["NAME", "EMAIL", "DATE OF BIRTH"]]
-    flag = True
 
-    while flag:
+    while True:
         validation = input("\nDo you wanna add information to the file? (yes or no):")
 
         if validation == "yes":
-            new_flag = True
-
-            name = input("\nWrite the name (write \"done\" when you finished):")
-            email = input("Write the email:")
-            date_of_birth = input("Write the date of birth:")
-
-            while new_flag:
-                data_list_info = [name, email, date_of_birth]
-                data_list.append(data_list_info)
-
+            while True:
                 name = input("\nWrite the name (write \"done\" when you finished):")
                 if name == "done":
                     break
 
                 email = input("Write the email:")
                 date_of_birth = input("Write the date of birth:")
+
+                data_list_info = [name, email, date_of_birth]
+                data_list.append(data_list_info)
         elif validation == "no":
-            flag = False
+            break
         else:
             print("Please, put a valid answer\n")
 
@@ -116,6 +111,3 @@ def list_of_files():
 
     for name_dir, name_files, f_file in os.walk(name_dir):
         print(f_file)
-
-
-read_file()
