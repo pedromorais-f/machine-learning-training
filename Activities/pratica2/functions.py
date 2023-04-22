@@ -144,7 +144,7 @@ def read_txt():
         with open(file_name, "r") as f:
             file_lines = f.readlines()
 
-            for i, file_line in enumerate(file_lines):
+            for file_line in file_lines:
                 numbers_list = file_line.split(";")
 
                 list_x.append(float(numbers_list[0]))
