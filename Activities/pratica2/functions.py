@@ -20,6 +20,7 @@ def file_path(extension):
     name_file_split = name_file.split(".")
 
     if extension != name_file_split[1]:
+        print("ERROR: Wrong extension file\n")
         return
 
     return name_file
@@ -43,7 +44,7 @@ def write_random_numbers_in_txt(n):
             for i in range(n):
                 f.write(str(random_numbers_list[i][0]) + ";" + str(random_numbers_list[i][1]) + "\n")
             f.close()
-    except IndexError as error:
+    except FileNotFoundError as error:
         print(error)
 
 
@@ -67,7 +68,7 @@ def write_random_numbers_in_csv(n):
             for row in random_numbers_list:
                 data_writer.writerow(row)
             f.close()
-    except IndexError as error:
+    except FileNotFoundError as error:
         print(error)
 
 
@@ -87,7 +88,7 @@ def write_random_numbers_in_txt_v2(n):
             for i in range(n):
                 f.write(str(random_numbers_list[i][0]) + ";" + str(random_numbers_list[i][1]) + "\n")
             f.close()
-    except IndexError as error:
+    except FileNotFoundError as error:
         print(error)
 
 
@@ -109,7 +110,7 @@ def write_random_numbers_in_csv_v2(n):
             for row in random_numbers_list:
                 data_writer.writerow(row)
             f.close()
-    except IndexError as error:
+    except FileNotFoundError as error:
         print(error)
 
 
@@ -128,7 +129,7 @@ def read_csv():
                         list_x.append(float(item))
                     else:
                         list_y.append(float(item))
-    except IndexError as error:
+    except FileNotFoundError as error:
         print(error)
 
     return list_x, list_y
@@ -149,7 +150,7 @@ def read_txt():
 
                 list_x.append(float(numbers_list[0]))
                 list_y.append(float(numbers_list[1]))
-    except IndexError as error:
+    except FileNotFoundError as error:
         print(error)
 
     return list_x, list_y
