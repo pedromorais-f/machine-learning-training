@@ -9,6 +9,7 @@ def file_path(extension):
     name_file_split = name_file.split(".")
 
     if extension != name_file_split[1]:
+        print("ERROR: Wrong extension file\n")
         return
 
     return name_file
@@ -53,9 +54,8 @@ def read_file():
                 file_line = file_line.replace("\n", "")
                 print(f"{i + 1}| {file_line}")
         f.close()
-    except Exception as error:
+    except FileNotFoundError as error:
         print(error)
-        return
 
 
 def write_file_csv():
@@ -101,9 +101,8 @@ def read_file_csv():
 
         f_csv = pd.read_csv(name_file)
         print(f_csv)
-    except Exception as error:
+    except FileNotFoundError as error:
         print(error)
-        return
 
 
 def list_of_files():
