@@ -9,7 +9,7 @@ def file_path(extension):
     name_file_split = name_file.split(".")
 
     if extension != name_file_split[1]:
-        print("ERROR: Wrong extension file\n")
+        print("ERROR: The File's extension is incorrect\n")
         return
 
     return name_file

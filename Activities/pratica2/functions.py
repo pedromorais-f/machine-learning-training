@@ -20,7 +20,7 @@ def file_path(extension):
     name_file_split = name_file.split(".")
 
     if extension != name_file_split[1]:
-        print("ERROR: Wrong extension file\n")
+        print("ERROR: The File's extension is incorrect\n")
         return
 
     return name_file
@@ -42,7 +42,7 @@ def write_random_numbers_in_txt(n):
     try:
         with open(file_name, "w", newline='') as f:
             for i in range(n):
-                f.write(str(random_numbers_list[i][0]) + ";" + str(random_numbers_list[i][1]) + "\n")
+                f.write(f"{random_numbers_list[i][0]};{random_numbers_list[i][1]}\n")
             f.close()
     except FileNotFoundError as error:
         print(error)
@@ -86,7 +86,7 @@ def write_random_numbers_in_txt_v2(n):
     try:
         with open(file_name, "w", newline='') as f:
             for i in range(n):
-                f.write(str(random_numbers_list[i][0]) + ";" + str(random_numbers_list[i][1]) + "\n")
+                f.write(f"{random_numbers_list[i][0]};{random_numbers_list[i][1]}\n")
             f.close()
     except FileNotFoundError as error:
         print(error)
