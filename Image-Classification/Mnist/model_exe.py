@@ -13,13 +13,7 @@ def show_image(chosen_image):
 print("Getting datasets...")
 mnist = tf.keras.datasets.mnist
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
-
-# Normalizing the pixels
-x_test = x_test.reshape((10000, 28, 28, 1))
-x_test = x_test / 255.0
-
-y_test = np.array(y_test)
-print("Concluded")
+print("Concluded\n")
 
 print("Loading the model...")
 with open("../Mnist/Model/model.json") as f:
@@ -27,9 +21,12 @@ with open("../Mnist/Model/model.json") as f:
     f.close()
 model = model_from_json(load_model)
 model.load_weights("../Mnist/Model/model.h5")
-print("Model loaded")
+print("Model loaded\n")
 
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+
+print("ALL classes...")
+print("0, 1, 2, 3, 4, 5, 6, 7, 8, 9\n")
 
 
 while True:

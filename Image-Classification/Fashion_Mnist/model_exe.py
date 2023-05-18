@@ -13,18 +13,19 @@ def show_image(chosen_image):
 print("Getting datasets...")
 datasets = tf.keras.datasets.fashion_mnist
 (x_train, y_train), (x_test, y_test) = datasets.load_data()
-print("Concluded")
+print("Concluded\n")
 
-print("Normalizing the pixels...")
-x_test = x_test / 255.0
-y_test = np.array(y_test)
-print("Concluded")
 
 print("Loading the model...")
 loaded_model = load_model(filepath="../Fashion_Mnist/Model/model.h5")
-print("Model loaded")
+print("Model loaded\n")
 
 clothes = ["T-shirt/top", "Trouser", "Pullover", "Dress", "Coat", "Sandal", "Shirt", "Sneaker", "Bag", "Ankle boot"]
+
+print("Showing ALL classes...")
+for index, clothing in enumerate(clothes):
+    print(f'{index}: {clothing}')
+print("\n")
 
 while True:
     index = input("Put a value(1 - 10000) or exit:")
